@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1><p>Register Page!</p></h1>
+
+<!-- Getting Flash Messages -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  {% for i in messages %}
+    <p class="flash-messages">{{ i }}</p>
+  {% endfor %}
+{% endif %}
+{% endwith %}
+
+<form action="/register" method="POST">
+    <label class="label">username</label>
+    <input type="text" id="usernameinput" name="username" />
+    <label class="label">password</label>
+    <input type="text" id="passwordinput" name="password" />
+    <input type="submit" id="submitbutton"/>
+</form>
+{% endblock %}

@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!-- Meta tags-->
-        <meta charset="utf-8">
-        <meta charset="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-        <title>Home</title>
-    </head>
-    <body>
-        <div id="heading">
-            <h1>Hello World</h1>
-        </div>
-    </body>
-</html>
+{% extends 'layout.html' %}
+
+{% block content %}
+<!-- Getting Flash Messages -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  {% for i in messages %}
+    <p class="flash-messages">{{ i }}</p>
+  {% endfor %}
+{% endif %}
+{% endwith %}
+
+<h1>Home Page</h1>
+<p> Logged in as {{ username }} </p>
+
+{% endblock %}
